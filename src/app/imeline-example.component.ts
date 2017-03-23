@@ -9,7 +9,7 @@ import {VisTimelineItems, VisTimelineService, VisTimelineGroups} from "ng2-vis";
       <h3>Basic usage</h3>
       <div [visTimeline]="visTimeline"
            [visTimelineItems]="visTimelineItems"
-           [visTimelineGroups]="VisTimelineGroups"
+           [visTimelineGroups]="visTimelineGroups"
            (initialized)="timelineInitialized()"></div>
       <button type="button" class="btn btn-default" (click)="addItem()">Add and focus</button>
       <p>
@@ -72,26 +72,26 @@ export class VisTimelineExampleComponent implements OnInit, OnDestroy {
   private getVisTimelineItems() {
 
     return new VisTimelineItems([
+
+      {id: '0', content: 'Period A', start: '2016-10-16', end: '2016-10-22', type: 'background', group: 1},
       {
         id: 2,
         content: 'Notification<br>21/11/2016',
         group: 1,
         start: '2016-11-21',
-        end: '2018-11-21',
-        type: 'background'
+        end: '2016-11-29'
       },
       {
         id: 1,
         content: 'Notification<br>11/06/2016',
-        group: 3,
-        start: '2016-06-11',
-        end: '2016-06-31',
-        type: 'background'
+        group: 1,
+        start: '2016-10-11',
+        end: '2016-10-31'
       },
       {
         id: 20,
         group: 3,
-        content: 'Date limite d\'affermissement de la tranche condtionnelle 2<br>21/10/2016',
+        content: 'Date limite d\'affermissement',
         start: '2016-10-21',
         type: 'point',
         className: 'color-6'
@@ -102,9 +102,9 @@ export class VisTimelineExampleComponent implements OnInit, OnDestroy {
 
   private getVisTimelineGroups() {
     return new VisTimelineGroups([
-      {id: 1, content: 'Tranche Ferme'},
-      {id: 2, content: 'Tranche Conditionnelle 1<br>Evolutions du module RH'},
-      {id: 3, content: 'Tranche Conditionnelle 2<br>Maintenance des applications'}
+      {id: 1, content: 'Tranche 1'},
+      {id: 2, content: 'Tranche 2'},
+      {id: 3, content: 'Tranche 3'}
     ]);
   }
 
